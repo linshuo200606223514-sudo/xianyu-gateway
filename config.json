@@ -1,0 +1,10 @@
+{
+  "app_key": 1566422639953477,
+  "app_secret": "YOUR_APP_SECRET_HERE",
+  "authorize_id": 0,
+  "user_name": "你的闲鱼会员名",
+  "province": 110000,
+  "city": 110100,
+  "district": 110101,
+  "base_url": "https://open.goofish.pro"
+}
