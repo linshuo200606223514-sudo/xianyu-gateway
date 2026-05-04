@@ -24,21 +24,33 @@ def verify_sign(mch_id, timestamp, sign, body_str="{}"):
 
 @app.route("/goofish/open/info", methods=["GET", "POST"])
 def app_info():
-    """获取虚拟货源应用信息 - 闲管家验证接口"""
+    """查询平台信息 - 闲管家验证接口（无请求参数）"""
+    body_str = request.get_data(as_text=True) or "{}"
+    print(f"[app_info] method={request.method} args={dict(request.args)} body={body_str}")
+
+    return jsonify({
+        "code": 0,
+        "msg": "OK",
+        "data": {
+            "app_id": APP_KEY
+        }
+    })
+
+
+@app.route("/goofish/user/info", methods=["GET", "POST"])
+def user_info():
+    """查询商户信息 - 闲管家验证商户接口"""
     mch_id = request.args.get("mch_id", "")
     sign = request.args.get("sign", "")
     timestamp = request.args.get("timestamp", "")
     body_str = request.get_data(as_text=True) or "{}"
-    headers = dict(request.headers)
-    print(f"[app_info] method={request.method} args={dict(request.args)} body={body_str} headers={headers}")
+    print(f"[user_info] mch_id={mch_id} timestamp={timestamp} sign={sign} body={body_str}")
 
     return jsonify({
         "code": 0,
-        "msg": "success",
+        "msg": "OK",
         "data": {
-            "app_key": str(APP_KEY),
-            "app_name": "superpower",
-            "status": 1
+            "balance": 9999999
         }
     })
 
