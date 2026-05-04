@@ -35,7 +35,7 @@ def app_info():
         "code": 0,
         "msg": "success",
         "data": {
-            "app_key": APP_KEY,
+            "app_key": str(APP_KEY),
             "app_name": "superpower",
             "status": 1
         }
