@@ -8,6 +8,7 @@ import time
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 APP_KEY = 1566744781702981
 APP_SECRET = "Hwth2LiZ4eQBU7PHvd5B50CeWrkwdLFQ"
