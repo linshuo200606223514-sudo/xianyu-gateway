@@ -28,8 +28,9 @@ def app_info():
     mch_id = request.args.get("mch_id", "")
     sign = request.args.get("sign", "")
     timestamp = request.args.get("timestamp", "")
-
     body_str = request.get_data(as_text=True) or "{}"
+    headers = dict(request.headers)
+    print(f"[app_info] method={request.method} args={dict(request.args)} body={body_str} headers={headers}")
 
     return jsonify({
         "code": 0,
